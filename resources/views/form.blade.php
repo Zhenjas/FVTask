@@ -6,7 +6,7 @@
     <title>Form</title>
     <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/css/datepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/pikaday.css" />
 </head>
 <body>
 
@@ -46,7 +46,7 @@
             </div>
             <div class="field">
                 <label for="datebritch">Date of britch</label>
-                <input type="text" id="birthday-picker" class="group1" name="datebritch" autocomplete="off"/>
+                <input type="text" id="datebritch-picker" class="group1" name="datebritch" autocomplete="off"/>
                 <span id="datebritch" class="validity"></span>
             </div>
             <div class="b-wrapper clear">
@@ -58,7 +58,7 @@
                 <p>Step 2: Contact information</p>
             </div>
         </div>
-        <div id="inner2" class="inner" style="display: none">
+        <div id="inner2" class="inner inner-close">
             <div class="field">
                 <label for="email">Email address:</label>
                 <input type="text" class="group2" name="email">
@@ -78,7 +78,7 @@
                 <p>Step 3: Comments</p>
             </div>
         </div>
-        <div id="inner3" class="inner" style="display: none">
+        <div id="inner3" class="inner inner-close">
             <div class="field">
                 <label for="comments">Comments:(Optional)</label>
                 <input type="text" class="comments-size" id="comments" name="comments">
@@ -100,10 +100,9 @@
     </div>
 @endif
 
-<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="/js/datepicker.min.js"></script>
+<script type="text/javascript" src="/js/moment.min.js"></script>
+<script type="text/javascript" src="/js/pikaday.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
-<script type="text/javascript" src="/js/i18n/datepicker.en.js"></script>
 
 </body>
 </html>
