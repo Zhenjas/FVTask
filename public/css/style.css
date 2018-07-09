@@ -1,17 +1,22 @@
 @font-face {
-  font-family: 'ArialMT';
-  src: url('../fonts/ARIALMT.ttf') format('truetype'),
-  url('../fonts/ARI.ttf') format('truetype');
+	font-family: 'ArialMT';
+	src: url('../fonts/ARIALMT.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }  
 
 @font-face {
     font-family: 'MyriadPro';
-    src: url('../fonts/MyriadPro-Regular.otf') format("opentype");
+    src: url('../fonts/MyriadPro-Regular.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
     font-family: 'HelveticaNeueCyr-Medium';
-    src: url('../fonts/HelveticaNeueCyr-Medium.ttf') format("truetype");
+    src: url('../fonts/HelveticaNeueCyr-Medium.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
 }
 
 body{
@@ -121,7 +126,7 @@ body{
 	border-radius: 10px;
 	background-color: #dedede;
 	opacity: 1;
-	transition: max-height 0.8s, opacity 0.1s;
+	transition: max-height 0.8s linear, opacity 0.1s linear;
 }
 
 .inner-close{
