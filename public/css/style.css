@@ -121,34 +121,22 @@ body{
 	border-radius: 10px;
 	background-color: #dedede;
 	opacity: 1;
-	transition: max-height 0.8s, opacity 0.1s, visibility 0.1s linear;
+	transition: max-height 0.8s, opacity 0.1s;
 }
 
 .inner-close{
-    	opacity: 0;
-    	height: 0px;
-    	max-height: 0px;
-    	overflow: hidden;
-    	margin-top: -40px;
+	opacity: 0;
+	height: 0px;
+	max-height: 0px;
+	overflow: hidden;
+	margin-top: -40px;
 }
 
 .inner-open{
-    	opacity: 1;
-    	max-height: 500px;
-    	margin-top: -29px;
+	opacity: 1;
+	max-height: 500px;
+	margin-top: -29px;
 }
-
-/*@keyframes mymove {
-    from {
-    	opacity: 0.5;
-    	visibility: visible;
-    }
-    to {
-    	visibility: hidden;
-    	opacity: 0;
-    }
-}
-*/
 
 .inner button{
 	width: 130px;
