@@ -1,84 +1,117 @@
+const errors = { 
+    "firstname" : "Please enter Firstname",
+    "lastname" : "Please enter Lastname",
+    "gender" : "Please enter Gender",
+    "datebritch" : "Please enter Date of britch",
+    "datebritch_pattern" : "Wrong format should be dd/mm/yyyy",
+    "email" : "Please enter E-mail address",
+    "email_pattern" : "Please enter correct email",
+    "telephone" : "Please enter your Phone number",
+    "telephone_pattern" : "Allow only UK numbers"
+}
 
 const datePattern = /([0-2]\d{1}|3[0-1])\/(0\d{1}|1[0-2])\/(19|20)\d{2}/;
 const emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const ukPhonePattern = /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/;
 
-$(document).ready(function () {
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
 
-	$('#birthday-picker').datepicker({
-		dateFormat: "dd/mm/yyyy",
-    	language: 'en'
-	});
+const inner1 = document.getElementById("inner1");
+const inner2 = document.getElementById("inner2");
+const inner3 = document.getElementById("inner3");
 
-	$('#btn1').on('click', function() {
-	    let valid = true,
-	        message = '';
-	    
-	    $('.validity').hide();
-	    $('.group1').each(function() {
-	        let $this = $(this),
-	            inputName = $this.attr("name");
-
-	        if(!$this.val()) {
-	            valid = false;
-	            $("span#"+inputName).show().text("Please enter your " + inputName);
-	        }
-
-	        if(inputName == "datebritch" && $this.val() !== ""){
-	            if(!datePattern.test($this.val())){               
-	                valid  = false;
-	                $("span#"+inputName).show().text("Wrong format! Should be dd/mm/yyyy");
-	            }
-	        }
-	    });
-	    
-	    if(valid)
-	    {
-			$(this).parent().parent().slideUp();
-			$('#inner2').slideDown();
-	    }
-
-	});
-
-
-	$('#btn2').on('click', function(){
-	    let valid = true,
-	        message = '';
-	    
-	    $('.validity').hide();
-	    $('.group2').each(function() {
-	        let $this = $(this),
-	            inputName = $this.attr("name");
-	        if(!$this.val()) {
-	            valid = false;
-	            $("span#"+inputName).show().text("Please enter your " + inputName);
-	        }
-	        
-	        if(inputName == "email" && $this.val() !== ""){
-	            if(!emailPattern.test($this.val())){               
-	                valid  = false;
-	                $("span#"+inputName).show().text("Please enter email in correct format");
-	            }
-	        }
-
-	        if(inputName == "telephone" && $this.val() !== ""){
-	            if(!ukPhonePattern.test($this.val())){
-	            	valid  = false;
-	            	$("span#"+inputName).show().text("Please enter UK telephone number");
-	            }
-	        }
-	    });
-	    
-	    if(valid)
-	    {
-		    $(this).parent().parent().slideUp();
-		  	$('#inner3').slideDown();
-	    }
-
-	});
-
-	$('.error-alert button').on('click', function(){
-	  $('.error-alert').hide();
-	})
-
+const picker = new Pikaday({
+    field: document.getElementById('datebritch-picker'),
+    format: 'DD/MM/YYYY'
 });
+
+function closeAllAlerts(){
+	let validity = document.querySelectorAll('.validity'),
+    i = 0;
+    l = validity.length;
+
+	for (i; i < l; i++) {
+	    validity[i].style.display = 'none';
+	}
+}
+
+btn1.addEventListener("click",function(e){
+
+	closeAllAlerts();
+
+	let group1 = document.querySelectorAll('.group1');
+    i = 0;
+    l = group1.length;
+
+    let valid = true,
+    message = '';
+
+	for (i; i < l; i++) {
+
+		let validity = document.getElementById(group1[i].name);
+
+	    if(!group1[i].value){
+	    	valid = false;
+	    	validity.style.display = "inline";
+	    	validity.innerHTML = errors[group1[i].name];
+	    }
+
+		if(group1[i].name == 'datebritch' && group1[i].value !== ""){
+            if(!datePattern.test(group1[i].value)){               
+                valid  = false;
+		    	validity.style.display = "inline";
+		    	validity.innerHTML = errors[group1[i].name + '_pattern'];
+            }
+		}
+	}
+
+	if(valid){
+		inner1.className = 'inner inner-close';
+		inner2.className = 'inner inner-open';
+	}
+},false);
+
+btn2.addEventListener("click",function(e){
+
+	closeAllAlerts();
+
+	let group2 = document.querySelectorAll('.group2');
+    i = 0;
+    l = group2.length;
+
+    let valid = true,
+    message = '';
+
+	for (i; i < l; i++) {
+
+		let validity = document.getElementById(group2[i].name);
+
+	    if(!group2[i].value){
+	    	valid = false;
+	    	validity.style.display = "inline";
+	    	validity.innerHTML = errors[group2[i].name];
+	    }
+
+		if(group2[i].name == 'telephone' && group2[i].value !== ""){
+            if(!ukPhonePattern.test(group2[i].value)){               
+                valid  = false;
+		    	validity.style.display = "inline";
+		    	validity.innerHTML = errors[group2[i].name + '_pattern'];
+            }
+		}
+
+		if(group2[i].name == 'email' && group2[i].value !== ""){
+            if(!emailPattern.test(group2[i].value)){               
+                valid  = false;
+		    	validity.style.display = "inline";
+		    	validity.innerHTML = errors[group2[i].name + '_pattern'];
+            }
+		}
+	}
+
+	if(valid){
+		inner2.className = 'inner inner-close';
+		inner3.className = 'inner inner-open';
+	}
+},false);
