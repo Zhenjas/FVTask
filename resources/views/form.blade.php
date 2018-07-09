@@ -101,7 +101,7 @@
 @endif
 
 <script type="text/javascript" src="/js/moment.min.js"></script>
-<script type="text/javascript" src="/js/pikaday.js"></script>
+<script type="text/javascript" src="/js/pikaday.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
 
 </body>
