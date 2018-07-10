@@ -10,11 +10,8 @@
 </head>
 <body>
 
-@if(session()->has('message'))
-    <div class="alert-success">
-        {{ session()->get('message') }}
-    </div>
-@endif
+<div class="response-message">
+</div>
     
 <div class="box fixToCenter">
     <div class="state-wrapper">
@@ -22,7 +19,7 @@
             <p>Step 1: Personal details</p>
         </div>
     </div>
-    <form id="clientForm" method="post" action="/store">
+    <form id="clientForm" class="clientForm" method="post" action="/store">
         {{ csrf_field() }}
         <div id="inner1" class="inner">
             <div class="field">
@@ -85,21 +82,13 @@
                 <span class="validity"></span>
             </div>
             <div class="b-wrapper clear">
-                <button>Send form</button>
+                <button type="button" id="btn3">Send form</button>
             </div>
         </div>
     </form>  
 </div>
 
-@if ($errors->any())
-    <div class="error-alert">
-            @foreach ($errors->all() as $error)
-                <p>{{ $error }}</p>
-            @endforeach
-            <button>Close</button>
-    </div>
-@endif
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 <script type="text/javascript" src="/js/moment.min.js"></script>
 <script type="text/javascript" src="/js/pikaday.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>

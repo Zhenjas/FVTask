@@ -19,6 +19,13 @@
     font-style: normal;
 }
 
+@media only screen and (width: 700px){
+	.box-wrapper{
+		margin-top: 100px;
+		padding-top: 100px;
+	}
+}
+
 body{
 	background-color: #d2e1ff;
 }
@@ -55,8 +62,8 @@ body{
 	background-color: #323335;
 }
 
-.alert-success{
-	opacity: 1;
+.response-message{
+	opacity: 0;
 	background-color: green;
 	height: 40px;
 	padding: 10px;
@@ -64,6 +71,15 @@ body{
 	font-weight: bold;
 	color: white;
 	font-size: 15px;
+	transition: opacity 0.8s linear;
+}
+
+.show{
+	opacity: 1;
+}
+
+.red{
+	background-color: red !important;
 }
 
 .validity{
@@ -126,7 +142,7 @@ body{
 	border-radius: 10px;
 	background-color: #dedede;
 	opacity: 1;
-	transition: max-height 0.8s linear, opacity 0.1s linear;
+	transition: max-height 0.5s linear, opacity 0.1s linear;
 }
 
 .inner-close{
