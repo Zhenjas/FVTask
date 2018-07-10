@@ -12,6 +12,15 @@
 
 <div class="response-message">
 </div>
+
+<div align="center" class="cssload-fond">
+    <div class="cssload-container-general">
+            <div class="cssload-internal"><div class="cssload-ballcolor cssload-ball_1"> </div></div>
+            <div class="cssload-internal"><div class="cssload-ballcolor cssload-ball_2"> </div></div>
+            <div class="cssload-internal"><div class="cssload-ballcolor cssload-ball_3"> </div></div>
+            <div class="cssload-internal"><div class="cssload-ballcolor cssload-ball_4"> </div></div>
+    </div>
+</div>
     
 <div class="box fixToCenter">
     <div class="state-wrapper">
@@ -43,7 +52,7 @@
             </div>
             <div class="field">
                 <label for="datebritch">Date of britch</label>
-                <input type="text" id="datebritch-picker" class="group1" name="datebritch" autocomplete="off"/>
+                <input type="text" id="datebritch-picker" class="group1" name="datebritch" autocomplete="off" placeholder="DD/MM/YYYY" />
                 <span id="datebritch" class="validity"></span>
             </div>
             <div class="b-wrapper clear">

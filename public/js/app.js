@@ -14,6 +14,7 @@ const datePattern = /([0-2]\d{1}|3[0-1])\/(0\d{1}|1[0-2])\/(19|20)\d{2}/;
 const emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const ukPhonePattern = /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/;
 
+const loadingAnim = document.querySelector('.cssload-fond');
 const responseMsg = document.querySelector('.response-message');
 
 const btn1 = document.getElementById("btn1");
@@ -50,9 +51,12 @@ function sendFormData() {
 	clientData.append('telephone', clientData.get("telephone"));
 	clientData.append('comments', clientData.get("comments"));
 
-	var xhr = new XMLHttpRequest();
+	loadingAnim.className = "cssload-fond show";
+
+	let xhr = new XMLHttpRequest();
 	xhr.open('POST', '/store', true);
 	xhr.onload = function () {
+		loadingAnim.className = "cssload-fond hide";
 		let jsonResponse = JSON.parse(xhr.responseText);
 		if(jsonResponse.errors){
 			responseMsg.innerHTML = "Sorry, you entered incorrect data. We apologize for this situation. Try again";
