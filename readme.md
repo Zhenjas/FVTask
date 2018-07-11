@@ -7,6 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Demo
+http://aws.inpost.lv/
+
 ## Installation Instructions
 
 1. git clone https://github.com/Zhenjas/FVTask.git
