@@ -7,6 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Installation Instructions
+
+1. git clone https://github.com/Zhenjas/FVTask.git
+2. composer install
+3. rename .env.example to .env
+4. open the .env file with a text editor and set your mysql database settings.
+5. php artisan key:generate
+6. php artisan migrate
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
